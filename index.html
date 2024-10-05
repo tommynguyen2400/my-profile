@@ -7,9 +7,10 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
             rel="stylesheet">
-        <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet" href="/assets/css/style.css">
         <link rel="icon" type="image/png" sizes="32x32" href="avatar.jpg">
         <title>Nguyễn Hoàng Việt </title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     </head>
     <body>
         <audio id="myAudio" muted autoplay></audio>
@@ -21,9 +22,6 @@
                     </div>
                     <div class="card__title--name">
                         <h1> Nguyễn Hoàng Việt </h1>
-                        <div class="veri__check">
-                            <i class="fas fa-check"></i>
-                        </div>
                     </div>
                     <div class="card__title--description">
                         <p> Lucky & Power 😊 </p>
@@ -105,54 +103,16 @@
                         </div>                        
                     </div>
                 </div>
+                <div class="toggle toggle__back">
+                    <i class="fas fa-play"></i>
+                </div>
                 <div class="toggle toggle__theme">
                     <i class="fas fa-moon"></i>
                 </div>
             </div>
         </div>
         
-        <script src="./script.js"></script>
-        <script>
-            // list music
-            var playlist = [
-              "music1.mp3",
-              "music2.mp3",
-              "music3.mp3",
-              "music4.mp3",
-            ];
-            var audio = document.getElementById("myAudio");
-
-            // random
-            function getRandomSong() {
-                var randomIndex = Math.floor(Math.random() * playlist.length);
-                return playlist[randomIndex];
-            }
-            function playRandomSong() {
-                var randomSong = getRandomSong();
-                audio.src = randomSong;
-                audio.play().then(() => {
-                    audio.muted = false;
-                }).catch((error) => {
-                    console.log('Autoplay failed:', error);
-                });
-            }
-
-            audio.onended = function() {
-                playRandomSong();
-            };
-
-            window.onload = function() {
-                var hasInteracted = localStorage.getItem('hasInteracted');
-                if (!hasInteracted) {
-                    document.addEventListener('click', function() {
-                    localStorage.setItem('hasInteracted', true);
-                    playRandomSong();
-                    document.getElementById('message').style.display = 'none'; 
-                    });
-                } else {
-                    playRandomSong();
-                }
-            };
-        </script>
+        <script src="/assets/js/script.js"></script>
+        <script src="/assets/js/music.js"></script>
     </body>
 </html>
