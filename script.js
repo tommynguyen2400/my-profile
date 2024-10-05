@@ -31,14 +31,6 @@ if (window.sidebar){
     document.onclick=reEnable;
 }
 
-function noteOut()
-{
-    var note = document.querySelector(".note");
-    note.style.display = "none";
-}
-
-setInterval(noteOut,3000);
-
 //Chống chuột phải 
 window.onload = function() {
     document.addEventListener("contextmenu", function(e) {
@@ -91,7 +83,10 @@ document.onkeydown = function(e) {
         return true;
     }
 };
-$(document).keypress("u",function(e) {
-    if(e.ctrlKey) return false;
-    else return true;
+document.addEventListener("keydown", function(e) {
+    // Kiểm tra nếu phím nhấn là U (keyCode 85) và phím Ctrl đang được giữ
+    if (e.ctrlKey && e.key === 'u') {
+        e.preventDefault();  // Ngăn chặn hành động mặc định (mở chế độ xem nguồn trang)
+        return false;
+    }
 });
